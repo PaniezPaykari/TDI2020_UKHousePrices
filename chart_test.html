@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.8.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-854ba32d6095a3cd23a9e2600a26db39"}, "mark": {"type": "point", "filled": true}, "encoding": {"color": {"condition": {"type": "nominal", "field": "Year", "selection": "select"}, "value": "grey"}, "opacity": {"value": 0.8}, "order": {"type": "quantitative", "field": "# of Sales", "sort": "ascending"}, "size": {"type": "quantitative", "field": "# of Sales Regularised"}, "tooltip": [{"type": "quantitative", "field": "# of Sales"}, {"type": "quantitative", "field": "Average House Price (\u00a3)"}, {"type": "quantitative", "field": "Year"}], "x": {"type": "nominal", "field": "date", "timeUnit": "month"}, "y": {"type": "quantitative", "field": "Average House Price (\u00a3)", "scale": {"zero": false}}}, "height": 300, "selection": {"select": {"type": "single", "fields": ["Year"], "on": "mouseover"}}, "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-854ba32d6095a3cd23a9e2600a26db39": [{"Year": 2018, "Month": 1, "Average House Price (\u00a3)": 357000.0, "# of Sales": 70209, "date": "2018-01-01T00:00:00", "# of Sales Regularised": 8.0209}, {"Year": 2018, "Month": 2, "Average House Price (\u00a3)": 355000.0, "# of Sales": 71752, "date": "2018-02-01T00:00:00", "# of Sales Regularised": 8.1752}, {"Year": 2018, "Month": 3, "Average House Price (\u00a3)": 345000.0, "# of Sales": 84433, "date": "2018-03-01T00:00:00", "# of Sales Regularised": 9.4433}, {"Year": 2018, "Month": 4, "Average House Price (\u00a3)": 341000.0, "# of Sales": 72555, "date": "2018-04-01T00:00:00", "# of Sales Regularised": 8.2555}, {"Year": 2018, "Month": 5, "Average House Price (\u00a3)": 339000.0, "# of Sales": 81732, "date": "2018-05-01T00:00:00", "# of Sales Regularised": 9.1732}, {"Year": 2019, "Month": 1, "Average House Price (\u00a3)": 347000.0, "# of Sales": 67073, "date": "2019-01-01T00:00:00", "# of Sales Regularised": 7.7073}, {"Year": 2019, "Month": 2, "Average House Price (\u00a3)": 338000.0, "# of Sales": 70041, "date": "2019-02-01T00:00:00", "# of Sales Regularised": 8.0041}, {"Year": 2019, "Month": 3, "Average House Price (\u00a3)": 393000.0, "# of Sales": 81566, "date": "2019-03-01T00:00:00", "# of Sales Regularised": 9.1566}, {"Year": 2019, "Month": 4, "Average House Price (\u00a3)": 349000.0, "# of Sales": 74449, "date": "2019-04-01T00:00:00", "# of Sales Regularised": 8.4449}, {"Year": 2019, "Month": 5, "Average House Price (\u00a3)": 328000.0, "# of Sales": 81086, "date": "2019-05-01T00:00:00", "# of Sales Regularised": 9.1086}, {"Year": 2020, "Month": 1, "Average House Price (\u00a3)": 330000.0, "# of Sales": 62072, "date": "2020-01-01T00:00:00", "# of Sales Regularised": 7.2072}, {"Year": 2020, "Month": 2, "Average House Price (\u00a3)": 323000.0, "# of Sales": 53488, "date": "2020-02-01T00:00:00", "# of Sales Regularised": 6.3488}, {"Year": 2020, "Month": 3, "Average House Price (\u00a3)": 406000.0, "# of Sales": 21349, "date": "2020-03-01T00:00:00", "# of Sales Regularised": 3.1349}, {"Year": 2020, "Month": 4, "Average House Price (\u00a3)": 438000.0, "# of Sales": 281, "date": "2020-04-01T00:00:00", "# of Sales Regularised": 1.0281}, {"Year": 2020, "Month": 5, "Average House Price (\u00a3)": 254000.0, "# of Sales": 41, "date": "2020-05-01T00:00:00", "# of Sales Regularised": 1.0041}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
